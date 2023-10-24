@@ -8,8 +8,8 @@ app_server <- function(input, output, session) {
 
   email <- reactive({session$userData$user()$email})
   accessToken <- reactive({
-    api_key <- "AIzaSyCV-gUz8Mtu2XeJroz3zru262uJ9nakn2A"
-    user <- sign.in("example@email.com", "examplepass", api_key)
+    api_key <- Sys.getenv("FIREBASE_API_KEY")
+    user <- sign.in("example@email.com",  Sys.getenv("PASSWORD"), api_key)
     user$idToken
   })
 
