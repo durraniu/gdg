@@ -2,15 +2,59 @@
 #'
 #' @param request Internal parameter for `{shiny}`.
 #'     DO NOT REMOVE.
-#' @import shiny
+#' @import shiny micromodal bslib shinyWidgets
 #' @noRd
 app_ui <- function(request) {
+
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic
-    fluidPage(
-      h1("gdg")
+    page_fluid(
+
+      tags$style(
+        HTML(
+          "@font-face {
+    font-family: 'Hunger Games';
+    src: url('www/Hunger Games.ttf') format('truetype');
+  }",
+  ".modal__title{
+  font-family: 'Playpen Sans';
+  }")),
+
+      setBackgroundImage(
+        src = "www/hg_bg2.png"
+      ),
+
+      title = "May the Odds be Ever in your Favour",
+
+      theme = bs_theme(version = 5,
+                       preset = "shiny",
+                       heading_font = font_face(
+                         family = 'Hunger Games',
+                         src = "url('Hunger Games.ttf') format('truetype')"),
+                       base_font = font_google(family = "Playpen Sans")),
+
+      use_micromodal(),
+
+      mod_questionnaire_ui("questionnaire"),
+
+      br(),
+
+      mod_display_prediction_ui("dpred"),
+
+      br(),
+      # verbatimTextOutput("user_out"),
+  fluidRow(
+    column(12, align = "center",
+      actionButton(
+        "sign_out",
+        "Sign Out",
+        icon = icon("sign-out-alt"),
+        # class = "pull-right",
+        style = "margin: 0 auto;"
+      )
+))
     )
   )
 }

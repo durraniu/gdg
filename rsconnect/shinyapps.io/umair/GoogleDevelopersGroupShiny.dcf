@@ -1,0 +1,12 @@
+name: GoogleDevelopersGroupShiny
+title: GoogleDevelopersGroupShiny
+username: umair
+account: umair
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10288504
+bundleId: 7842548
+url: https://umair.shinyapps.io/GoogleDevelopersGroupShiny/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
