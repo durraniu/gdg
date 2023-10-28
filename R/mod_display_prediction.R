@@ -29,7 +29,7 @@ mod_display_prediction_server <- function(id, form_list, accessToken, email){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
 
-    # Predictions
+    # Predictionz
     pred_text <- reactive({
       req(form_list)
       user_inputs <- form_list()$in_form
